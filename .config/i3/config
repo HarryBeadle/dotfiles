@@ -1,0 +1,237 @@
+######### Harry's Changes
+
+# Set Background
+exec sh ~/.fehbg &
+
+# Start Dropbox
+exec dropbox
+# Start nm-applet
+exec nm-applet
+# Start Caffiene
+exec caffeine
+
+# Middle button scrolling...
+exec xinput set-prop "ImPS/2 Generic Wheel Mouse" "libinput Scroll Method Enabled" 0 0 1
+# Disable trackpad
+exec synclient TouchpadOff=1
+
+# Rofi for binaries, Desktop Apps
+bindsym $mod+d exec rofi -show run
+bindsym $mod+Shift+d exec rofi -show drun
+
+# Lock Screen and Display Detect
+bindsym XF86Display exec display
+bindsym XF86Tools exec i3lock --color=000000
+
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+
+# Audio and Volume
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
+bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
+bindsym XF86AudioMute exec amixer -D pulse set Master 1+ toggle -q
+
+# Media
+bindsym $mod+Home exec playerctl previous
+bindsym $mod+Insert exec playerctl next
+bindsym $mod+End exec playerctl play-pause
+
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec playerctl play-pause
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+        status_command i3blocks
+	font pango:Ubuntu 14
+}
+
+#
+# 'Numerical' Workspace Settings
+#
+
+# Workspace names
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws0 "Social"
+
+# Switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws0
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws0
+
+#
+# 'Function' Workspaces
+#
+
+# Workspace names
+set $wsf1 "F1"
+set $wsf2 "F2"
+set $wsf3 "F3"
+set $wsf4 "F4"
+set $wsf5 "F5"
+set $wsf6 "F6"
+set $wsf7 "F7"
+set $wsf8 "F8"
+set $wsf9 "F9"
+set $wsf10 "F10"
+set $wsf11 "F11"
+set $wsf12 "F12"
+
+# Move current container to workspace
+bindsym $mod+Shift+F1  move container to workspace $wsf1
+bindsym $mod+Shift+F2  move container to workspace $wsf2
+bindsym $mod+Shift+F3  move container to workspace $wsf3
+bindsym $mod+Shift+F4  move container to workspace $wsf4
+bindsym $mod+Shift+F5  move container to workspace $wsf5
+bindsym $mod+Shift+F6  move container to workspace $wsf6
+bindsym $mod+Shift+F7  move container to workspace $wsf7
+bindsym $mod+Shift+F8  move container to workspace $wsf8
+bindsym $mod+Shift+F9  move container to workspace $wsf9
+bindsym $mod+Shift+F10 move container to workspace $wsf10
+bindsym $mod+Shift+F11 move container to workspace $wsf11
+bindsym $mod+Shift+F12 move container to workspace $wsf12
+
+# Change workspace
+bindsym $mod+F1  workspace $wsf1
+bindsym $mod+F2  workspace $wsf2
+bindsym $mod+F3  workspace $wsf3
+bindsym $mod+F4  workspace $wsf4
+bindsym $mod+F5  workspace $wsf5
+bindsym $mod+F6  workspace $wsf6
+bindsym $mod+F7  workspace $wsf7
+bindsym $mod+F8  workspace $wsf8
+bindsym $mod+F9  workspace $wsf9
+bindsym $mod+F10 workspace $wsf10
+bindsym $mod+F11 workspace $wsf11
+bindsym $mod+F12 workspace $wsf12
+
+#
+# Global workspace controls
+#
+
+bindsym control+$mod+Left workspace prev
+bindsym control+$mod+Right workspace next
+
+#
+# Font
+#
+
+font pango:Ubuntu Mono 0
+
+#
+# Execs
+#
+
+bindsym $mod+Return exec gnome-terminal
+
+
+######### End Changes
+
+
+# Using windows key as modifier
+set $mod Mod4
+
+# Mouse+$mod moves floating windows
+floating_modifier $mod
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# Cursor keys move focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
